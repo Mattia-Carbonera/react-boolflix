@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Card({ title, originalTitle, language, rate }) {
+export default function Card({ image, title, originalTitle, language, rate }) {
   let nation = "";
 
   if (language == "it") {
@@ -15,8 +15,11 @@ export default function Card({ title, originalTitle, language, rate }) {
     nation = "";
   }
 
+  const originPathImage = "http://image.tmdb.org/t/p/w342/";
+
   return (
     <div className="card">
+      <img src={image ? originPathImage + image : "/placeholder.png"} alt="" />
       <ul>
         <li>Titolo: {title}</li>
         <li>Titolo originale: {originalTitle}</li>
