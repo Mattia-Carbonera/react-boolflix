@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { createContext, useContext } from "react";
 
-const MvoieContext = createContext();
+const MovieContext = createContext();
 const apiUrl = import.meta.env.VITE_API_URL;
 const apiOptions = {
   method: "GET",
@@ -14,7 +14,7 @@ const apiOptions = {
 
 export const MovieContextProvider = ({ children }) => {
   const [searchedName, setSearchedName] = useState("");
-  const [searchResult, setSearchResult] = useState({});
+  const [searchResult, setSearchResult] = useState([]);
 
   const apiFetch = () => {
     setSearchedName("harry");
@@ -32,12 +32,12 @@ export const MovieContextProvider = ({ children }) => {
   }, [searchedName]);
 
   return (
-    <MvoieContext.Provider value={{ searchResult }}>
+    <MovieContext.Provider value={{ searchResult }}>
       {children}
-    </MvoieContext.Provider>
+    </MovieContext.Provider>
   );
 };
 
 export const MoviesContext = () => {
-  return useContext(MvoieContext);
+  return useContext(MovieContext);
 };

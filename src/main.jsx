@@ -7,9 +7,9 @@ import App from "./App.jsx";
 import { MovieContextProvider } from "../Contexts/MovieContext";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <MovieContextProvider>
-      <App />
-    </MovieContextProvider>
-  </StrictMode>
+  // <StrictMode>
+  <MovieContextProvider>
+    <App />
+  </MovieContextProvider>
+  // </StrictMode>
 );

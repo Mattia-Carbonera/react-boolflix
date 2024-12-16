@@ -15,8 +15,8 @@ export default function Main() {
           <div className="card-container">
             <div className="card">
               <ul>
-                <li>{searchResult.length}</li>
-                <li>{searchResult[0].title}</li>
+                <li>{searchResult.title}</li>
+                <li>{searchResult.original_title}</li>
               </ul>
             </div>
             {/* {searchResult.map((movie) => {
