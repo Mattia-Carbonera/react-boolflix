@@ -4,13 +4,13 @@ export default function Card({ title, originalTitle, language, rate }) {
   let nation = "";
 
   if (language == "it") {
-    nation = "IT";
+    nation = "https://flagsapi.com/IT/shiny/16.png";
   } else if (language == "en") {
-    nation = "GB";
+    nation = "https://flagsapi.com/GB/shiny/16.png";
   } else if (language == "es") {
-    nation = "ES";
+    nation = "https://flagsapi.com/ES/shiny/16.png";
   } else if (language == "fr") {
-    nation = "FR";
+    nation = "https://flagsapi.com/FR/shiny/16.png";
   } else {
     nation = "";
   }
@@ -23,7 +23,7 @@ export default function Card({ title, originalTitle, language, rate }) {
         <li>
           Lingua:
           {language}
-          <img src={`https://flagsapi.com/${nation}/shiny/16.png`}></img>
+          <img src={nation}></img>
           {}
         </li>
         <li>Voto: {rate}</li>
