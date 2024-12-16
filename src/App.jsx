@@ -1,20 +1,22 @@
 import { useState } from "react";
 import "./App.css";
 
-// importo il context
-import { MovieContextProvider } from "../Contexts/MovieContext";
+// importo i componenti
+import Header from "./Components/Header";
+import Main from "./Components/Main";
 
 // importo l'API
 import { MoviesContext } from "../Contexts/MovieContext";
 
 function App() {
-  const { provaApi, provaApiDue } = MoviesContext();
+  // const { provaApi } = MoviesContext();
   return (
-    <MovieContextProvider>
-      <h1>Title</h1>
-      <span>{provaApi}</span>
-      <span>{provaApiDue}</span>
-    </MovieContextProvider>
+    <>
+      <Header />
+      <Main />
+
+      {/* <span>{provaApi}</span> */}
+    </>
   );
 }
 

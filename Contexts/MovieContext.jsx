@@ -4,16 +4,10 @@ const MvoieContext = createContext();
 const apiUrl = import.meta.env.VITE_API_URL;
 
 export const MovieContextProvider = ({ children }) => {
-  const provaApi = "API";
-  const provaApiDue = "API2";
-  console.log(provaApi, provaApiDue);
+  //   const provaApi = "API";
 
   //   console.log(provaApi);
-  return (
-    <MvoieContext.Provider value={{ provaApi, provaApiDue }}>
-      {children}
-    </MvoieContext.Provider>
-  );
+  return <MvoieContext.Provider value={{}}>{children}</MvoieContext.Provider>;
 };
 
 export const MoviesContext = () => {

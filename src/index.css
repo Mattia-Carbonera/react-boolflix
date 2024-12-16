@@ -1,0 +1,27 @@
+/* GENERAL */
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 2rem;
+
+  background-color: #0d0d0d;
+}
+
+header h1 {
+  color: red;
+}
+
+.input-container > form > input,
+.input-container > form > select,
+.input-container > form > button {
+  margin: 0 1rem;
+}
