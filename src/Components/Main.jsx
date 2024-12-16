@@ -13,6 +13,12 @@ export default function Main() {
         <div className="movie-container">
           <h2>Movie</h2>
           <div className="card-container">
+            <div className="card">
+              <ul>
+                <li>{searchResult.length}</li>
+                <li>{searchResult[0].title}</li>
+              </ul>
+            </div>
             {/* {searchResult.map((movie) => {
               console.log("ok");
             })} */}
