@@ -17,7 +17,7 @@ export const MovieContextProvider = ({ children }) => {
   const [searchResult, setSearchResult] = useState([]);
 
   const apiFetch = () => {
-    setSearchedName("harry");
+    setSearchedName("");
     fetch(apiUrl + searchedName, apiOptions)
       .then((res) => res.json())
       .then((data) => {
@@ -31,8 +31,24 @@ export const MovieContextProvider = ({ children }) => {
     apiFetch();
   }, [searchedName]);
 
+  //   controllo dell'invio del form di ricerca
+  const [inputTitleName, setInputTitleName] = useState("");
+  const hadleInputChange = (e) => {
+    e.preventDefault();
+    setInputTitleName(e.target.value);
+  };
+
+  //   controllo l'invio del form
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const searchedMovie = inputTitleName;
+    setSearchedName(searchedMovie);
+  };
+
   return (
-    <MovieContext.Provider value={{ searchResult }}>
+    <MovieContext.Provider
+      value={{ searchResult, hadleInputChange, handleFormSubmit }}
+    >
       {children}
     </MovieContext.Provider>
   );

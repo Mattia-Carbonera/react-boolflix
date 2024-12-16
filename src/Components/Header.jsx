@@ -1,4 +1,8 @@
+import { MoviesContext } from "../../Contexts/MovieContext";
+
 export default function Header() {
+  const { hadleInputChange, handleFormSubmit } = MoviesContext();
+
   return (
     <header>
       <div className="logo-container">
@@ -6,11 +10,15 @@ export default function Header() {
       </div>
       <nav className="nav-container">
         <div className="input-container">
-          <form>
-            <select name="" id="">
+          <form onSubmit={handleFormSubmit}>
+            {/* <select name="" id="">
               <option value="0">Seleziona genere</option>
-            </select>
-            <input placeholder="Cerca un film/serieTV" type="text" />
+            </select> */}
+            <input
+              onChange={hadleInputChange}
+              placeholder="Cerca un film/serieTV"
+              type="text"
+            />
             <button>Cerca</button>
           </form>
         </div>
