@@ -4,7 +4,7 @@ import Card from "./Card";
 import { MoviesContext } from "../../Contexts/MovieContext";
 
 export default function Main() {
-  const { searchResult } = MoviesContext();
+  const { searchResult, searchTvResult } = MoviesContext();
   //   console.log(searchResult);
 
   return (
@@ -23,9 +23,22 @@ export default function Main() {
                   rate={movie.vote_average}
                 />
               ))}
-            {/* {searchResult.map((movie) => {
-              console.log("ok");
-            })} */}
+          </div>
+        </div>
+
+        <div className="tvseries-container">
+          <h2>TV series</h2>
+          <div className="card-container">
+            {searchTvResult?.length > 0 &&
+              searchTvResult.map((tv) => (
+                <Card
+                  key={tv.id}
+                  title={tv.title}
+                  originalTitle={tv.original_name}
+                  language={tv.original_language}
+                  rate={tv.vote_average}
+                />
+              ))}
           </div>
         </div>
         <div className="tv-container"></div>

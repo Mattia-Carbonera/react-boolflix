@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { createContext, useContext } from "react";
 
 const MovieContext = createContext();
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiMovieUrl = import.meta.env.VITE_API_MOVIE_URL;
+const apiTvUrl = import.meta.env.VITE_API_TV_URL;
 const apiOptions = {
   method: "GET",
   headers: {
@@ -14,21 +15,37 @@ const apiOptions = {
 
 export const MovieContextProvider = ({ children }) => {
   const [searchedName, setSearchedName] = useState("");
-  const [searchResult, setSearchResult] = useState([]);
 
+  //   raccolgo gli array di dati dei risultati
+  const [searchResult, setSearchResult] = useState([]);
+  const [searchTvResult, setSearchTvResult] = useState([]);
+
+  //   eseguo il fetch per i film
   const apiFetch = () => {
     setSearchedName("");
-    fetch(apiUrl + searchedName, apiOptions)
+    fetch(apiMovieUrl + searchedName, apiOptions)
       .then((res) => res.json())
       .then((data) => {
         setSearchResult(data.results);
-        // console.log(data.results);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  //   eseguo il fetch per le serie TV
+  const apiFetchTvSeries = () => {
+    setSearchedName("");
+    fetch(apiTvUrl + searchedName, apiOptions)
+      .then((res) => res.json())
+      .then((data) => {
+        setSearchTvResult(data.results);
+        console.log(data.results);
       })
       .catch((err) => console.log(err));
   };
 
   useEffect(() => {
     apiFetch();
+    apiFetchTvSeries();
   }, [searchedName]);
 
   //   controllo dell'invio del form di ricerca
@@ -47,7 +64,12 @@ export const MovieContextProvider = ({ children }) => {
 
   return (
     <MovieContext.Provider
-      value={{ searchResult, hadleInputChange, handleFormSubmit }}
+      value={{
+        searchResult,
+        searchTvResult,
+        hadleInputChange,
+        handleFormSubmit,
+      }}
     >
       {children}
     </MovieContext.Provider>

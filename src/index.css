@@ -3,10 +3,11 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background-color: #282525;
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -34,7 +35,7 @@ header h1 {
 /* MAIN */
 main {
   background-color: #282525;
-  height: calc(100vh - 79.88px);
+  min-height: calc(100vh - 79.88px);
 }
 
 .main-container {
