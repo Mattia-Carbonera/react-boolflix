@@ -1,11 +1,11 @@
-export default function Card() {
+export default function Card({ title, originalTitle, language, rate }) {
   return (
     <div className="card">
       <ul>
-        <li>Ttitolo</li>
-        <li>Titolo originale</li>
-        <li>Lingua</li>
-        <li>Voto</li>
+        <li>{title}</li>
+        <li>{originalTitle}</li>
+        <li>{language}</li>
+        <li>{rate}</li>
       </ul>
     </div>
   );

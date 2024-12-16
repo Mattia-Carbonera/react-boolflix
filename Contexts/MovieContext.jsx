@@ -14,13 +14,15 @@ const apiOptions = {
 
 export const MovieContextProvider = ({ children }) => {
   const [searchedName, setSearchedName] = useState("");
+  const [searchResult, setSearchResult] = useState({});
 
   const apiFetch = () => {
     setSearchedName("harry");
     fetch(apiUrl + searchedName, apiOptions)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setSearchResult(data.results);
+        // console.log(data.results);
       })
       .catch((err) => console.log(err));
   };
@@ -29,7 +31,11 @@ export const MovieContextProvider = ({ children }) => {
     apiFetch();
   }, [searchedName]);
 
-  return <MvoieContext.Provider value={{}}>{children}</MvoieContext.Provider>;
+  return (
+    <MvoieContext.Provider value={{ searchResult }}>
+      {children}
+    </MvoieContext.Provider>
+  );
 };
 
 export const MoviesContext = () => {
