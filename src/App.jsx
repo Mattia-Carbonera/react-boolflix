@@ -9,13 +9,10 @@ import Main from "./Components/Main";
 import { MoviesContext } from "../Contexts/MovieContext";
 
 function App() {
-  // const { provaApi } = MoviesContext();
   return (
     <>
       <Header />
       <Main />
-
-      {/* <span>{provaApi}</span> */}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { createContext, useContext } from "react";
 
 const MvoieContext = createContext();
@@ -13,21 +13,22 @@ const apiOptions = {
 };
 
 export const MovieContextProvider = ({ children }) => {
-  //   const provaApi = "API";
+  const [searchedName, setSearchedName] = useState("");
 
   const apiFetch = () => {
-    fetch(apiUrl, apiOptions)
+    setSearchedName("harry");
+    fetch(apiUrl + searchedName, apiOptions)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
     apiFetch();
-  }, []);
+  }, [searchedName]);
 
-  //   console.log(provaApi);
   return <MvoieContext.Provider value={{}}>{children}</MvoieContext.Provider>;
 };
 

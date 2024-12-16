@@ -5,6 +5,11 @@ body {
   padding: 0;
 }
 
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
 /* HEADER */
 header {
   display: flex;
@@ -24,4 +29,37 @@ header h1 {
 .input-container > form > select,
 .input-container > form > button {
   margin: 0 1rem;
+}
+
+/* MAIN */
+main {
+  background-color: #282525;
+  height: calc(100vh - 79.88px);
+}
+
+.main-container {
+  padding: 3rem 0;
+}
+
+.main-container h2 {
+  color: white;
+  padding-left: 2rem;
+}
+
+.card {
+  display: inline-block;
+
+  padding: 2rem;
+
+  background-color: #0d0d0d;
+  border-radius: 10px;
+}
+
+main .card ul {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+
+  color: white;
 }
