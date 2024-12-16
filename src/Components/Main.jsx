@@ -12,7 +12,7 @@ export default function Main() {
     <main>
       <div className="container main-container">
         <div className="movie-container">
-          <h2>Movie</h2>
+          <h2 className={searchResult?.length > 0 ? "" : "d-none"}>Movie</h2>
           <div className={"card-container"}>
             {searchResult?.length > 0 &&
               searchResult.map((movie) => (
@@ -29,7 +29,9 @@ export default function Main() {
         </div>
 
         <div className="tvseries-container">
-          <h2>TV series</h2>
+          <h2 className={searchTvResult?.length > 0 ? "" : "d-none"}>
+            TV series
+          </h2>
           <div className="card-container">
             {searchTvResult?.length > 0 &&
               searchTvResult.map((tv) => (

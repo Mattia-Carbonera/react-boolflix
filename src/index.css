@@ -11,6 +11,10 @@ body {
   margin: auto;
 }
 
+.d-none {
+  display: none;
+}
+
 /* HEADER */
 header {
   display: flex;
