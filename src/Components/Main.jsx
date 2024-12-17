@@ -101,7 +101,7 @@ export default function Main() {
               <h2>Nessun risultato</h2>
               <h3>Cerca qualcosa!</h3>
               <span>
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <i className="fa-solid fa-magnifying-glass"></i>
               </span>
             </div>
           </div>
