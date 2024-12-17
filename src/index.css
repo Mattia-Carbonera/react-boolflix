@@ -30,6 +30,28 @@ header h1 {
   color: red;
 }
 
+header button {
+  cursor: pointer;
+
+  background-color: #282525;
+  color: white;
+
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem 0.5rem;
+}
+
+header button:hover {
+  cursor: pointer;
+
+  background-color: #3d3939;
+  color: white;
+
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem 0.5rem;
+}
+
 .input-container > form > input,
 .input-container > form > select,
 .input-container > form > button {
@@ -100,7 +122,6 @@ hr {
   display: inline-block;
   width: 342px;
 
-  /* padding: 1rem; */
   margin: 1rem;
 
   background-color: #0d0d0d;
@@ -138,6 +159,10 @@ main .card ul {
 
 .card > .content-card li {
   margin: 1rem 0;
+}
+
+.card:hover {
+  cursor: pointer;
 }
 
 .card:hover .production-image {
