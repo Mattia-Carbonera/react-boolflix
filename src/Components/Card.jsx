@@ -1,6 +1,13 @@
 import { useState } from "react";
 
-export default function Card({ image, title, originalTitle, language, rate }) {
+export default function Card({
+  image,
+  title,
+  originalTitle,
+  language,
+  rate,
+  overview,
+}) {
   let nation = "";
 
   if (language == "it") {
@@ -21,34 +28,60 @@ export default function Card({ image, title, originalTitle, language, rate }) {
 
   return (
     <div className="card">
-      <img src={image ? originPathImage + image : "/placeholder.png"} alt="" />
-      <ul>
-        <li>Titolo: {title}</li>
-        <li>Titolo originale: {originalTitle}</li>
-        <li>
-          Lingua:
-          {language}
-          <img src={nation}></img>
-          {}
-        </li>
-        <li>
-          <span>
-            <i class={`fa-${newRating > 0 ? "solid" : "regular"} fa-star`}></i>
-          </span>
-          <span>
-            <i class={`fa-${newRating > 1 ? "solid" : "regular"} fa-star`}></i>
-          </span>
-          <span>
-            <i class={`fa-${newRating > 2 ? "solid" : "regular"} fa-star`}></i>
-          </span>
-          <span>
-            <i class={`fa-${newRating > 3 ? "solid" : "regular"} fa-star`}></i>
-          </span>
-          <span>
-            <i class={`fa-${newRating > 4 ? "solid" : "regular"} fa-star`}></i>
-          </span>
-        </li>
-      </ul>
+      <div className="production-image">
+        <img
+          src={image ? originPathImage + image : "/placeholder.png"}
+          alt="backgrownd image"
+        />
+      </div>
+      <div className="content-card">
+        <ul>
+          <li>
+            <strong>Titolo: </strong>
+            {title}
+          </li>
+          <li>
+            <strong>Titolo originale: </strong>
+            {originalTitle}
+          </li>
+          <li>
+            <strong>Lingua: </strong>
+            {language}
+            <img src={nation}></img>
+            {}
+          </li>
+          <li>
+            <span>
+              <i
+                class={`fa-${newRating > 0 ? "solid" : "regular"} fa-star`}
+              ></i>
+            </span>
+            <span>
+              <i
+                class={`fa-${newRating > 1 ? "solid" : "regular"} fa-star`}
+              ></i>
+            </span>
+            <span>
+              <i
+                class={`fa-${newRating > 2 ? "solid" : "regular"} fa-star`}
+              ></i>
+            </span>
+            <span>
+              <i
+                class={`fa-${newRating > 3 ? "solid" : "regular"} fa-star`}
+              ></i>
+            </span>
+            <span>
+              <i
+                class={`fa-${newRating > 4 ? "solid" : "regular"} fa-star`}
+              ></i>
+            </span>
+          </li>
+          <li>
+            <p>{overview}</p>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }

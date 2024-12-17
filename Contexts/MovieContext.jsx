@@ -17,8 +17,14 @@ const apiOptions = {
   },
 };
 
+// QUI QUI QUI---------------------------------------
+
 export const MovieContextProvider = ({ children }) => {
   const [searchedName, setSearchedName] = useState("");
+
+  //   dati completi della risposta
+  const [movieTtoalPage, setMovieTtoalPage] = useState(0);
+  const [tvTotalPage, setTvTotalPage] = useState(0);
 
   //   raccolgo gli array di dati dei risultati
   const [searchResult, setSearchResult] = useState([]);
@@ -26,23 +32,22 @@ export const MovieContextProvider = ({ children }) => {
 
   //   eseguo il fetch per i film
   const apiFetch = () => {
-    setSearchedName("");
-    fetch(apiMovieUrl + searchedName, apiOptions)
+    fetch(apiMovieUrl + searchedName + `&page=${moviePage}`, apiOptions)
       .then((res) => res.json())
       .then((data) => {
         setSearchResult(data.results);
+        setMovieTtoalPage(data.total_pages);
       })
       .catch((err) => console.log(err));
   };
 
   //   eseguo il fetch per le serie TV
   const apiFetchTvSeries = () => {
-    setSearchedName("");
-    fetch(apiTvUrl + searchedName, apiOptions)
+    fetch(apiTvUrl + searchedName + `&page=${tvPage}`, apiOptions)
       .then((res) => res.json())
       .then((data) => {
         setSearchTvResult(data.results);
-        console.log(data.results);
+        setTvTotalPage(data.total_pages);
       })
       .catch((err) => console.log(err));
   };
@@ -51,6 +56,41 @@ export const MovieContextProvider = ({ children }) => {
     apiFetch();
     apiFetchTvSeries();
   }, [searchedName]);
+
+  //   controllo il cambio della pagina
+  let [moviePage, setMoviePage] = useState(1);
+  let [tvPage, setTvPage] = useState(1);
+  const handleMovieChangePage = (e) => {
+    // console.log(e.target.value);
+
+    if (e.target.value == "incr-movie") {
+      if (moviePage < movieTtoalPage) {
+        setMoviePage((moviePage += 1));
+        apiFetch();
+      }
+    }
+
+    if (e.target.value == "decr-movie") {
+      if (moviePage > 1) {
+        setMoviePage((moviePage -= 1));
+        apiFetch();
+      }
+    }
+
+    if (e.target.value == "incr-tv") {
+      if (tvPage < tvTotalPage) {
+        setTvPage((tvPage += 1));
+        apiFetchTvSeries();
+      }
+    }
+
+    if (e.target.value == "decr-tv") {
+      if (tvPage > 1) {
+        setTvPage((tvPage -= 1));
+        apiFetchTvSeries();
+      }
+    }
+  };
 
   //   controllo dell'invio del form di ricerca
   const [inputTitleName, setInputTitleName] = useState("");
@@ -71,8 +111,11 @@ export const MovieContextProvider = ({ children }) => {
       value={{
         searchResult,
         searchTvResult,
+        moviePage,
+        tvPage,
         hadleInputChange,
         handleFormSubmit,
+        handleMovieChangePage,
       }}
     >
       {children}

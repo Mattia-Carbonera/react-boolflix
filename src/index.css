@@ -51,6 +51,45 @@ main {
   padding-left: 2rem;
 }
 
+hr {
+  margin-top: 3rem;
+}
+
+.movie-header-container,
+.tv-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+
+  color: white;
+}
+.movie-header-container span,
+.tv-header-container span {
+  padding: 0 1rem;
+}
+
+.movie-header-container button,
+.tv-header-container button {
+  cursor: pointer;
+
+  background-color: #0d0d0d;
+  color: white;
+
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem 0.5rem;
+}
+
+.movie-header-container button:hover,
+.tv-header-container button:hover {
+  opacity: 50%;
+}
+
+.tvseries-container {
+  margin-top: 3rem;
+}
+
 .card-container {
   display: flex;
   justify-content: center;
@@ -59,9 +98,9 @@ main {
 
 .card {
   display: inline-block;
-  width: 400px;
+  width: 342px;
 
-  padding: 2rem;
+  /* padding: 1rem; */
   margin: 1rem;
 
   background-color: #0d0d0d;
@@ -80,4 +119,36 @@ main .card ul {
   padding: 0;
 
   color: white;
+}
+
+.production-image {
+  height: 100%;
+}
+
+.production-image img {
+  display: block;
+  height: 100%;
+
+  border-radius: 10px;
+}
+
+.card > .content-card {
+  display: none;
+}
+
+.card > .content-card li {
+  margin: 1rem 0;
+}
+
+.card:hover .production-image {
+  display: none;
+}
+
+.card:hover .content-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  padding: 1rem;
 }
