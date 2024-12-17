@@ -60,6 +60,7 @@ header button:hover {
 
 /* MAIN */
 main {
+  z-index: 1;
   background-color: #282525;
   min-height: calc(100vh - 79.88px);
 }
@@ -197,4 +198,34 @@ main .card ul {
 
 .no-results-message h2 {
   color: #1c1a1a;
+}
+
+/* LAYOVER */
+.layover {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  color: red;
+}
+
+.layover h1 {
+  font-size: 4rem;
+  animation: focus 2.5s linear;
+}
+
+@keyframes focus {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(5);
+  }
 }

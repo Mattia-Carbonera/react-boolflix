@@ -17,8 +17,6 @@ const apiOptions = {
   },
 };
 
-// QUI QUI QUI---------------------------------------
-
 export const MovieContextProvider = ({ children }) => {
   const [searchedName, setSearchedName] = useState("");
 
