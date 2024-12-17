@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import { createContext, useContext } from "react";
 
 const MovieContext = createContext();
-const apiMovieUrl = import.meta.env.VITE_API_MOVIE_URL;
-const apiTvUrl = import.meta.env.VITE_API_TV_URL;
+// const apiMovieUrl = import.meta.env.VITE_API_MOVIE_URL;
+const apiMovieUrl = "https://api.themoviedb.org/3/search/movie?query=";
+
+// const apiTvUrl = import.meta.env.VITE_API_TV_URL;
+const apiTvUrl = "https://api.themoviedb.org/3/search/tv?query=";
+
 const apiOptions = {
   method: "GET",
   headers: {
