@@ -81,7 +81,20 @@ export default function Main() {
               ))}
           </div>
         </div>
-        <div className="tv-container"></div>
+
+        <div className="no-results-message">
+          <div
+            className={
+              searchResult.length > 0 || searchTvResult > 0 ? "d-none" : ""
+            }
+          >
+            <h2>Nessun risultato</h2>
+            <h3>Cerca qualcosa!</h3>
+            <span>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+          </div>
+        </div>
       </div>
     </main>
   );

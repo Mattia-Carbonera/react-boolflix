@@ -152,3 +152,22 @@ main .card ul {
   height: 100%;
   padding: 1rem;
 }
+
+.no-results-message {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  color: #1c1a1a;
+
+  width: 100%;
+  font-size: 3rem;
+}
+
+.no-results-message i {
+  font-size: 10rem;
+}
+
+.no-results-message h2 {
+  color: #1c1a1a;
+}
