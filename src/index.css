@@ -163,6 +163,7 @@ main .card ul {
 
 .card:hover {
   cursor: pointer;
+  overflow-y: auto;
 }
 
 .card:hover .production-image {
@@ -174,7 +175,8 @@ main .card ul {
   justify-content: center;
   align-items: center;
 
-  height: 100%;
+  height: calc(513px - 32px);
+
   padding: 1rem;
 }
 
