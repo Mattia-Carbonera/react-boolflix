@@ -143,6 +143,12 @@ main .card ul {
   color: white;
 }
 
+.card ul .language-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .production-image {
   height: 100%;
 }

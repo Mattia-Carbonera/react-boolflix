@@ -8,19 +8,10 @@ export default function Card({
   rate,
   overview,
 }) {
-  let nation = "";
-
-  if (language == "it") {
-    nation = "https://flagsapi.com/IT/shiny/16.png";
-  } else if (language == "en") {
-    nation = "https://flagsapi.com/GB/shiny/16.png";
-  } else if (language == "es") {
-    nation = "https://flagsapi.com/ES/shiny/16.png";
-  } else if (language == "fr") {
-    nation = "https://flagsapi.com/FR/shiny/16.png";
-  } else {
-    nation = "";
-  }
+  const lenguageFlag = (lang) => {
+    if (lang == "en") return "GB";
+    return lang.toUpperCase();
+  };
 
   const originPathImage = "http://image.tmdb.org/t/p/w342/";
 
@@ -44,10 +35,15 @@ export default function Card({
             <strong>Titolo originale: </strong>
             {originalTitle}
           </li>
-          <li>
+          <li className="language-item">
             <strong>Lingua: </strong>
             {language}
-            <img src={nation}></img>
+            <img
+              src={`https://flagsapi.com/${lenguageFlag(
+                language
+              )}/shiny/16.png`}
+              alt="lenguageFlag"
+            />
             {}
           </li>
           <li>

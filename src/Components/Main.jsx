@@ -91,6 +91,7 @@ export default function Main() {
             </div>
           </div>
 
+          {/* NO RESULT HOMPAGE MESSAGE */}
           <div className="no-results-message">
             <div
               className={
@@ -106,6 +107,8 @@ export default function Main() {
           </div>
         </div>
       </main>
+
+      {/* OVERLAY */}
       <div className={overlayTimer}>
         <div className={"layover"}>
           <div className="logo-container">
