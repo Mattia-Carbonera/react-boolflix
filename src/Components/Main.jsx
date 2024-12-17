@@ -48,10 +48,10 @@ export default function Main() {
           </div>
         </div>
 
-        <hr />
+        <hr className={searchTvResult?.length > 0 ? "" : "d-none"} />
 
         <div className="tvseries-container">
-          <div className={searchResult?.length > 0 ? "" : "d-none"}>
+          <div className={searchTvResult?.length > 0 ? "" : "d-none"}>
             <div className="tv-header-container">
               <h2>TV series</h2>
               <div className="page-button">
